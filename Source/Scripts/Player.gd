@@ -72,7 +72,3 @@ func apply_friction():
 func apply_acceleration(amount):
 	velocity.x = move_toward(velocity.x, MAX_SPEED * amount, ACCELERATION)
 	#move_toward går imod 0 som er værdierne fra overstående kode i forhold til movement i x-retningerne. amount er enten negativ eller positiv, og styres efter retning man går. 20 er accelerationskonstant
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://Source/Scenes/Login.tscn")
