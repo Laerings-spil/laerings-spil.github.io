@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Grafik/Lineære funktioner.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Map.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Area2D.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Grafik/HC_baggrund_minieksamensprojekt.png" type="Texture" id=5]
+[ext_resource path="res://Grafik/bluearrow.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64.125, 120.25 )
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HcBaggrundMinieksamensprojekt" type="Sprite" parent="."]
+position = Vector2( 1450, 348 )
+texture = ExtResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 164, 1060 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 1, 0.7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -1, 1190, -2, 1146, 45, 1142, 45, 854, 2924, 854, 2923, 1142, 47, 1142, 47, 1147, 2947, 1157, 2941, 825, 25, 837 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -301, -246 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 2825, 1270 )
+shape = SubResource( 1 )
+
+[node name="Emne1" type="Sprite" parent="Area2D"]
+position = Vector2( 2682, 1179 )
+scale = Vector2( 0.968444, 1.18069 )
+texture = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="Area2D/Emne1"]
+
+[node name="Test1" type="Button" parent="Area2D/Emne1/Area2D"]
+modulate = Color( 0.180392, 0.0823529, 0.862745, 0 )
+margin_left = -17.0
+margin_top = -15.0
+margin_right = 80.0
+margin_bottom = 42.0
+
+[node name="Teori1" type="Button" parent="Area2D/Emne1/Area2D"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -119.0
+margin_top = -14.0
+margin_right = -22.0
+margin_bottom = 41.0
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+position = Vector2( 115.067, 10.0001 )
+scale = Vector2( 0.978097, 1 )
+polygon = PoolVector2Array( 2773, 1138, 2778, 901, 2882, 904, 2890, 1139 )
+
+[node name="Bluearrow" type="Sprite" parent="Area2D2"]
+position = Vector2( 2750, 931 )
+rotation = -2.22002
+scale = Vector2( 0.179375, 0.180625 )
+texture = ExtResource( 6 )
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_Area2D_body_shape_exited"]
+[connection signal="pressed" from="Area2D/Emne1/Area2D/Test1" to="." method="_on_Test1_pressed"]
+[connection signal="pressed" from="Area2D/Emne1/Area2D/Teori1" to="." method="_on_Teori1_pressed"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
