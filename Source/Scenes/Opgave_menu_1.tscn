@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Source/Scripts/Opgave_menu.gd" type="Script" id=1]
+[ext_resource path="res://times.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Source/Grafik/LasseKnap1.png" type="Texture" id=3]
+[ext_resource path="res://Source/Grafik/LasseKnap4.png" type="Texture" id=4]
+[ext_resource path="res://Source/Grafik/LasseKnap3.png" type="Texture" id=5]
+[ext_resource path="res://Source/Grafik/LasseKnap2.png" type="Texture" id=6]
+[ext_resource path="res://Source/Grafik/Korrekt.png" type="Texture" id=7]
+[ext_resource path="res://Source/Grafik/Ga_videre.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 63
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 31
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Opgave_menu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.745098, 0.827451, 0.968627, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 372.0
+margin_top = 10.0
+margin_right = 618.0
+margin_bottom = 99.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Opgave 1"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 115.0
+margin_right = 1005.0
+margin_bottom = 421.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Et mobilabonnement koster 69 kr. pr. måned og 49 kr. 
+i oprettelse. Hvilken af følgende matematiske skrivemåder passer på dette
+ mobilabonnement, når y er den samlede pris efter x måneder?"
+align = 1
+
+[node name="Forkert1" type="Button" parent="."]
+margin_left = 2.0
+margin_top = 385.0
+margin_right = 253.0
+margin_bottom = 485.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+flat = true
+
+[node name="LasseKnap1" type="Sprite" parent="Forkert1"]
+position = Vector2( 124, 48 )
+scale = Vector2( 1, 1.53448 )
+texture = ExtResource( 3 )
+
+[node name="Forkert 2" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 260.0
+margin_top = 370.0
+margin_right = 517.0
+margin_bottom = 499.0
+
+[node name="Forkert 3" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 780.0
+margin_top = 370.0
+margin_right = 1012.0
+margin_bottom = 499.0
+
+[node name="Rigtig" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 520.0
+margin_top = 370.0
+margin_right = 771.0
+margin_bottom = 499.0
+text = "y=69x+49"
+
+[node name="LasseKnap2" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 126, 433 )
+scale = Vector2( 1, 1.53448 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="LasseKnap3" type="Sprite" parent="."]
+position = Vector2( 387, 433 )
+scale = Vector2( 1, 1.534 )
+texture = ExtResource( 6 )
+
+[node name="LasseKnap4" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 387, 433 )
+scale = Vector2( 1, 1.534 )
+z_index = 5
+texture = ExtResource( 6 )
+
+[node name="LasseKnap5" type="Sprite" parent="."]
+position = Vector2( 645, 433 )
+scale = Vector2( 1, 1.534 )
+texture = ExtResource( 5 )
+
+[node name="LasseKnap6" type="Sprite" parent="."]
+position = Vector2( 899, 433 )
+scale = Vector2( 1, 1.534 )
+texture = ExtResource( 4 )
+
+[node name="LasseKnap7" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 899, 433 )
+scale = Vector2( 1, 1.534 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Korrekt2" type="Sprite" parent="."]
+position = Vector2( 511.5, 320 )
+scale = Vector2( 2.665, 4.508 )
+z_index = 7
+texture = ExtResource( 8 )
+
+[node name="Korrekt" type="Sprite" parent="."]
+position = Vector2( 511.5, 162 )
+scale = Vector2( 2.66489, 4.50781 )
+z_index = 15
+texture = ExtResource( 7 )
+
+[node name="gå_videre" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 245.0
+margin_top = 256.0
+margin_right = 777.0
+margin_bottom = 404.0
+
+[connection signal="pressed" from="Forkert1" to="." method="_on_Forkert_1_pressed"]
+[connection signal="pressed" from="Forkert 2" to="." method="_on_Forkert_2_pressed"]
+[connection signal="pressed" from="Forkert 3" to="." method="_on_Forkert_3_pressed"]
+[connection signal="pressed" from="Rigtig" to="." method="_on_Rigtig_pressed"]
+[connection signal="pressed" from="gå_videre" to="." method="_on_g_videre_pressed"]
